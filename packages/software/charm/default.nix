@@ -16,7 +16,7 @@ in
   stdenv.mkDerivation {
     name = "charm";
     src = builtins.fetchGit {
-      url = "ssh://ian.mcfarlane@codereview.kdab.com:29418/Charm.git";
+      url = "ssh://codereview.kdab.com:29418/Charm.git";
       rev = "d81896861c837fc5e9bd927e2b2a0fa596e63fb1";
     };
 
