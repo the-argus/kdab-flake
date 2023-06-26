@@ -1,6 +1,6 @@
 {callPackage, ...}: rec {
   qtkeychain = callPackage ./qtkeychain {};
-  charm = callPackage ./charm {inherit qtkeychain;};
+  charm = callPackage ./charm {};
   doxybook2 = callPackage ./doxybook2 {};
   inja = callPackage ./inja {};
   vulkan-sdk = callPackage ./vulkan-sdk {};

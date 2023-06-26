@@ -4,7 +4,8 @@
   qt6,
   extra-cmake-modules,
   libsodium,
-  qtkeychain,
+  KDAB,
+  kdab-qtkeychain ? KDAB.software.qtkeychain,
   ...
 }: let
   kdextra-cmake-modules = builtins.fetchGit {
@@ -38,7 +39,7 @@ in
       qtscxml
       qtsvg
       qtconnectivity
-      qtkeychain
+      kdab-qtkeychain
       qtwayland
       libsodium
       extra-cmake-modules
