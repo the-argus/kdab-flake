@@ -2,7 +2,7 @@
   pkgs,
   KDAB,
   vulkan-sdk ? KDAB.software.vulkan-sdk,
-  qt-env ? KDAB.qt-env,
+  qt-env ? KDAB.software.qt-env,
   ...
 }:
 qt-env.override rec {
@@ -31,6 +31,6 @@ qt-env.override rec {
     ++ qtPackages;
 
   shellHook = ''
-    export VULKAN_SDK="${vulkansdk}"
+    export VULKAN_SDK="${vulkan-sdk}"
   '';
 }

@@ -7,7 +7,7 @@
   vulkan-tools,
   ...
 }: let
-  packages = with pkgs; [
+  packages = [
     glslang
     shaderc.dev
     shaderc.bin
@@ -22,6 +22,7 @@ in
     mkdir -p $out/lib
     mkdir -p $out/bin
     mkdir -p $out/include
+    mkdir -p $out/share
 
     # TODO: This seems like a common pattern, I'm sure there's a Nix Way to
     # recursively symlink files but I didn't bother figuring it out
