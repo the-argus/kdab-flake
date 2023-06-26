@@ -1,0 +1,31 @@
+From 631762eab8c0f73e4ececa0bf5f958ac7fb0ee67 Mon Sep 17 00:00:00 2001
+From: Ian McFarlane <i.mcfarlane2002@gmail.com>
+Date: Mon, 19 Jun 2023 12:56:55 -0400
+Subject: [PATCH] find_package corrosion, no fetchcontent
+
+---
+ api/cpp/CMakeLists.txt | 8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
+
+diff --git a/api/cpp/CMakeLists.txt b/api/cpp/CMakeLists.txt
+index c713c1c80..17125e231 100644
+--- a/api/cpp/CMakeLists.txt
++++ b/api/cpp/CMakeLists.txt
+@@ -7,13 +7,7 @@ project(Slint HOMEPAGE_URL "https://slint-ui.com/" LANGUAGES CXX VERSION 1.0.0)
+ include(FeatureSummary)
+ include(CMakeDependentOption)
+ 
+-include(FetchContent)
+-FetchContent_Declare(
+-    Corrosion
+-    GIT_REPOSITORY https://github.com/corrosion-rs/corrosion.git
+-    GIT_TAG v0.3.4
+-)
+-FetchContent_MakeAvailable(Corrosion)
++find_package(Corrosion)
+ 
+ list(PREPEND CMAKE_MODULE_PATH ${Corrosion_SOURCE_DIR}/cmake)
+ find_package(Rust 1.66 REQUIRED MODULE)
+-- 
+2.40.1
+

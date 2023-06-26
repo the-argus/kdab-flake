@@ -1,0 +1,29 @@
+{
+  mkShell,
+  pkgs,
+  ...
+}:
+mkShell {
+  packages = with pkgs; [
+    gnumake
+    cmake
+    pkg-config
+    gdb
+    vulkan-validation-layers
+    KDAB.doxybook2
+    doxygen
+    python311Packages.mkdocs
+    python311Packages.mkdocs-material
+    python311Packages.mkdocs-material-extensions
+    wayland
+    wayland-protocols
+    wayland-scanner
+    glfw
+    glm
+    libxkbcommon
+    xorg.libxcb
+    xorg.libXau
+    xorg.libXdmcp
+    libffi
+  ];
+}

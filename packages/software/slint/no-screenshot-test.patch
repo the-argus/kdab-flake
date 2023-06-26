@@ -1,0 +1,32 @@
+From 3f9392c3aefc9cde43d0339deb4042d545ad39e1 Mon Sep 17 00:00:00 2001
+From: Ian McFarlane <i.mcfarlane2002@gmail.com>
+Date: Mon, 19 Jun 2023 13:16:29 -0400
+Subject: [PATCH] noscreenshots
+
+---
+ Cargo.toml | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index cce5a7f31..b3c18d4e1 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -47,7 +47,6 @@ members = [
+     'tests/driver/interpreter',
+     'tests/driver/nodejs',
+     'tests/driver/rust',
+-    'tests/screenshots',
+     'tools/compiler',
+     'tools/fmt',
+     'tools/lsp',
+@@ -77,7 +76,6 @@ default-members = [
+     'tests/doctests',
+     'tests/driver/interpreter',
+     'tests/driver/rust',
+-    'tests/screenshots',
+     'tools/compiler',
+     'tools/fmt',
+     'tools/lsp',
+-- 
+2.40.1
+
