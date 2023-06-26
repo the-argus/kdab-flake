@@ -39,6 +39,7 @@ mkShell
 
   shellHook = ''
     export LD_LIBRARY_PATH=${pkgs.fontconfig.lib}/lib:$LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH=${pkgs.vulkan-loader}/lib:$LD_LIBRARY_PATH
 
     # only works for qtbase??
     export QT_PLUGIN_PATH=${pkgs.qt5.qtbase}/lib/qt-5.15.9/plugins:$QT_PLUGIN_PATH
