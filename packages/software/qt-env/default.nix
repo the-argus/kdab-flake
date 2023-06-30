@@ -10,6 +10,7 @@
         qtdeclarative
         qt5compat
         qtbase
+        qtsvg
       ])
     else if qtVersion == 5
     # TODO: qt5 support
