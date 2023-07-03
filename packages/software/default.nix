@@ -1,6 +1,7 @@
 {callPackage, ...}: rec {
   qtkeychain = callPackage ./qtkeychain {};
   charm = callPackage ./charm {};
+  kdab-viewer = callPackage ./kdab-viewer {};
   doxybook2 = callPackage ./doxybook2 {};
   inja = callPackage ./inja {};
   vulkan-sdk = callPackage ./vulkan-sdk {};
