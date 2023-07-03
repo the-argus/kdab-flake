@@ -16,6 +16,7 @@
   wayland-protocols,
   wayland,
   libffi,
+  libglvnd,
   ...
 }: let
   whereami = fetchFromGitHub {
@@ -56,6 +57,7 @@ in
       ++ [
         spdlog_setup
         libffi
+        libglvnd
       ]
       ++ (lib.lists.optionals waylandSupport [
         pkg-config
