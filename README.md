@@ -33,3 +33,4 @@ What this flake includes.
 - `qt-env` only supports qt 6 at the moment.
 - `qmllint-wrapper` is intended to fix a problem between qmllint and neovim
   lspconfig where qmllint can't find any of the imports. It does not work for me.
+- KDABViewer fails at the linking stage.
