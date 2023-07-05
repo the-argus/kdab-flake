@@ -25,6 +25,14 @@
     rev = "e4b7ba1be0e9fd60728acbdd418bc7195cdd37e7";
     hash = "sha256-nXgkIbQnV7a/4RlahFNEHkGyy2BIfTny2GkJ1DKa2BA=";
   };
+
+  mioTag = "8b6b7d878c89e81614d05edca7936de41ccdd2da";
+  mio = fetchFromGitHub {
+    repo = "mio";
+    owner = "mandreyel";
+    rev = mioTag;
+    sha256 = "sha256-j/wbjyI2v/BsFz2RKi8ZxMKuT+7o5uI4I4yIkUran7I=";
+  };
 in
   stdenv.mkDerivation rec {
     name = "kdutils";
@@ -41,6 +49,12 @@ in
           --replace "QUIET" "REQUIRED"
     '';
 
+    postPatch = ''
+      sed -i "/mio/d" cmake/dependencies.cmake || (exit 0)
+      sed -i "/fetchcontent_declare\(/d" cmake/dependencies.cmake || (exit 0)
+      sed -i "/${mioTag}/d" cmake/dependencies.cmake || (exit 0)
+    '';
+
     buildInputs = [cmake];
 
     inherit debug;
@@ -48,6 +62,7 @@ in
 
     cmakeFlags = [
       "-Dwhereami_SOURCE_DIR=${whereami}"
+      "-Dmio_SOURCE_DIR=${mio}"
       "-DKDUTILS_BUILD_TESTS=OFF"
       (lib.optionalString debug "-DCMAKE_BUILD_TYPE=Debug")
     ];
