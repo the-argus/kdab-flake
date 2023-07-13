@@ -3,6 +3,7 @@
   pkgs,
   doxybook2 ? pkgs.KDAB.software.doxybook2,
   vulkan-sdk ? pkgs.KDAB.software.vulkan-sdk,
+  kdutils ? pkgs.KDAB.software.kdutils,
   ...
 }:
 mkShell {
@@ -21,6 +22,7 @@ mkShell {
     wayland
     wayland-protocols
     wayland-scanner
+    kdutils
     glfw
     glm
     libxkbcommon
