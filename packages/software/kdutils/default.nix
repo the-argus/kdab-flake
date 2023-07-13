@@ -39,8 +39,8 @@ in
     src = fetchFromGitHub {
       repo = name;
       owner = "KDAB";
-      rev = "f906c58f6e44f4eb5932a677e613397f393e67a7";
-      hash = "sha256-pca/+ddPqU8QCIvY9hmfrwk240Y+x2Qjn6G3N6G+rJo=";
+      rev = "4a6ceafe6c73362299fdf549718f071ecf82c582";
+      sha256 = "1iw0pqwsnhx5fpvhgwvg8m3wdq5768wss71v1sd3ib5lwb6zd6km";
     };
 
     # sanity check to make sure wayland was found
