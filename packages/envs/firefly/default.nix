@@ -4,6 +4,7 @@
   vulkan-sdk ? KDAB.software.vulkan-sdk,
   qt-env ? KDAB.software.qt-env,
   kdutils ? KDAB.software.kdutils,
+  glm, # tends to cause problems, make overridable
   ...
 }:
 qt-env.override rec {
@@ -27,9 +28,9 @@ qt-env.override rec {
       vulkan-validation-layers
       vulkan-sdk
       glfw
-      glm
       kdutils
     ]
+    ++ [glm]
     ++ qtPackages;
 
   shellHook = ''
