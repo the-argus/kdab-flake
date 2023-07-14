@@ -3,6 +3,7 @@
   KDAB,
   vulkan-sdk ? KDAB.software.vulkan-sdk,
   qt-env ? KDAB.software.qt-env,
+  kdutils ? KDAB.software.kdutils,
   ...
 }:
 qt-env.override rec {
@@ -27,6 +28,7 @@ qt-env.override rec {
       vulkan-sdk
       glfw
       glm
+      kdutils
     ]
     ++ qtPackages;
 
