@@ -11,4 +11,5 @@
   slint = callPackage ./slint {};
   slint-bin = callPackage ./slint-bin {};
   spdlog_setup = callPackage ./spdlog_setup {};
+  gammaray-qt6 = callPackage ./gammaray-qt6 {};
 }
