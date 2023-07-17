@@ -7,7 +7,7 @@
   doxybook2 ? pkgs.KDAB.software.doxybook2,
   vulkan-sdk ? pkgs.KDAB.software.vulkan-sdk,
   kdutils ? pkgs.KDAB.software.kdutils,
-  extraPackages ? [llvmPackagesForShell.libclang],
+  extraPackages ? [],
   ...
 }:
 (mkShell.override {stdenv = shellStdenv;}) {
@@ -35,6 +35,8 @@
       xorg.libXau
       xorg.libXdmcp
       libffi
+      llvmPackagesForShell.libstdcxxClang
+      llvmPackagesForShell.libclang
     ]
     ++ extraPackages;
   shellHook = ''
