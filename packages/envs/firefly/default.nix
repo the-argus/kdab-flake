@@ -4,7 +4,9 @@
   vulkan-sdk ? KDAB.software.vulkan-sdk,
   qt-env ? KDAB.software.qt-env,
   kdutils ? KDAB.software.kdutils,
-  glm, # tends to cause problems, make overridable
+  glm,
+  # tends to cause problems, make overridable
+  extraPackages ? [],
   ...
 }:
 qt-env.override rec {
@@ -31,7 +33,8 @@ qt-env.override rec {
       kdutils
     ]
     ++ [glm]
-    ++ qtPackages;
+    ++ qtPackages
+    ++ extraPackages;
 
   shellHook = ''
     export VULKAN_SDK="${vulkan-sdk}"
