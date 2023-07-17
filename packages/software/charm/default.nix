@@ -6,6 +6,7 @@
   libsodium,
   KDAB,
   kdab-qtkeychain ? KDAB.software.qtkeychain,
+  extraPackages ? [],
   ...
 }: let
   kdextra-cmake-modules = builtins.fetchGit {
@@ -32,16 +33,18 @@ in
 
     buildInputs = [cmake qt6.wrapQtAppsHook];
 
-    nativeBuildInputs = with qt6; [
-      qtbase
-      qt5compat
-      qttools
-      qtscxml
-      qtsvg
-      qtconnectivity
-      kdab-qtkeychain
-      qtwayland
-      libsodium
-      extra-cmake-modules
-    ];
+    nativeBuildInputs = with qt6;
+      [
+        qtbase
+        qt5compat
+        qttools
+        qtscxml
+        qtsvg
+        qtconnectivity
+        kdab-qtkeychain
+        qtwayland
+        libsodium
+        extra-cmake-modules
+      ]
+      ++ extraPackages;
   }
