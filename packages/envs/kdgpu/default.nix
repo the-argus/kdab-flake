@@ -1,5 +1,6 @@
 {
   mkShell,
+  llvmPackages_14,
   llvmPackagesForShell ? llvmPackages_14,
   shellStdenv ? llvmPackagesForShell.stdenv,
   pkgs,
