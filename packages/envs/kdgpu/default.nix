@@ -10,7 +10,7 @@
   extraPackages ? [llvmPackagesForShell.libclang],
   ...
 }:
-(mkShell {
+(mkShell.override {stdenv = shellStdenv;}) {
   packages = with pkgs;
     [
       gnumake
@@ -40,5 +40,4 @@
   shellHook = ''
     export VULKAN_SDK="${vulkan-sdk}"
   '';
-})
-.override {stdenv = shellStdenv;}
+}
