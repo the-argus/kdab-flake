@@ -11,6 +11,7 @@
         qt5compat
         qtbase
         qtsvg
+        qtwayland
       ])
     else if qtVersion == 5
     # TODO: qt5 support
