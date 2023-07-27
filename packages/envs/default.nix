@@ -7,4 +7,5 @@
   firefly = callPackage ./firefly {};
   mecaps = callPackage ./mecaps {};
   qt6 = KDAB.software.qt-env;
+  schneider = callPackage ./schneider {};
 }
