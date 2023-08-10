@@ -10,6 +10,7 @@
   KDAB,
   spdlog_setup ? KDAB.software.spdlog_setup,
   kdbindings ? KDAB.software.kdbindings,
+  mio ? KDAB.software.mio,
   libxkbcommon,
   xorg,
   wayland-scanner,
@@ -25,44 +26,26 @@
     rev = "e4b7ba1be0e9fd60728acbdd418bc7195cdd37e7";
     hash = "sha256-nXgkIbQnV7a/4RlahFNEHkGyy2BIfTny2GkJ1DKa2BA=";
   };
-
-  mioTag = "8b6b7d878c89e81614d05edca7936de41ccdd2da";
-  mio = fetchFromGitHub {
-    repo = "mio";
-    owner = "mandreyel";
-    rev = mioTag;
-    sha256 = "sha256-j/wbjyI2v/BsFz2RKi8ZxMKuT+7o5uI4I4yIkUran7I=";
-  };
 in
   stdenv.mkDerivation rec {
     name = "kdutils";
     src = fetchFromGitHub {
       repo = name;
       owner = "KDAB";
-      rev = "54c1869120f0fe9d23b278e03a47c8a2c560dc87";
-      sha256 = "0vsjwx8y6njs5lawb2pcq0biw02skblh6fmcdr1r6j67l74prp4j";
+      rev = "df850430513fe868712b0308180b52ab45879e89";
+      sha256 = "0i8jianfz3nkawz4lr6dk2hrm5w1zvp8736mnqbm0i9nkd917m0q";
     };
 
-    # sanity check to make sure wayland was found
-    prePatch = lib.optionalString waylandSupport ''
-      substituteInPlace src/KDGui/CMakeLists.txt \
-          --replace "QUIET" "REQUIRED"
-    '';
-
-    postPatch = ''
-      sed -i "/mio/d" cmake/dependencies.cmake || (exit 0)
-      sed -i "/fetchcontent_declare\(/d" cmake/dependencies.cmake || (exit 0)
-      sed -i "/${mioTag}/d" cmake/dependencies.cmake || (exit 0)
-    '';
-
-    buildInputs = [cmake];
+    buildInputs = [
+      cmake
+      mio
+    ];
 
     inherit debug;
     dontStrip = debug;
 
     cmakeFlags = [
       "-Dwhereami_SOURCE_DIR=${whereami}"
-      "-Dmio_SOURCE_DIR=${mio}"
       "-DKDUTILS_BUILD_TESTS=OFF"
       (lib.optionalString debug "-DCMAKE_BUILD_TYPE=Debug")
     ];
@@ -93,5 +76,5 @@ in
         wayland
       ]);
 
-    patches = [./remove-fetchcontent.patch];
+    patches = [./remove-whereami-fetchcontent.patch];
   }
