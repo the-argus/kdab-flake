@@ -36,6 +36,12 @@
       packages = {
         inherit (pkgs.KDAB) envs software;
         default = self.packages.${system}.software.charm;
+
+        kdgpu-docs-debug = pkgs.KDAB.software.kdgpu.override {
+          kdutils = pkgs.KDAB.software.kdutils.override {debug = true;};
+          debug = true;
+          docs = true;
+        };
       };
 
       formatter = pkgs.alejandra;

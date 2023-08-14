@@ -19,8 +19,8 @@ stdenv.mkDerivation rec {
     rev = "5fa2d091efd1e1e9a6bc84317772ab22a7a5b9b1";
     sha256 = "1dsgsffy8dkkfwvj95hcqj79vwvyvpwfcr297fkn77s6iy963dqc";
   };
-  nativeBuildInputs = [cmake];
-  buildInputs = [
+  buildInputs = [cmake];
+  nativeBuildInputs = [
     fmt
     catch2
     nlohmann_json

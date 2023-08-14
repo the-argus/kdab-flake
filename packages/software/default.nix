@@ -8,6 +8,8 @@
   qt-env = callPackage ./qt-env {};
   kdbindings = callPackage ./kdbindings {};
   kdutils = callPackage ./kdutils {};
+  kdgpu = callPackage ./kdgpu {};
+  vulkan-memory-allocator = callPackage ./vulkan-memory-allocator {};
   slint = callPackage ./slint {};
   slint-bin = callPackage ./slint-bin {};
   spdlog_setup = callPackage ./spdlog_setup {};

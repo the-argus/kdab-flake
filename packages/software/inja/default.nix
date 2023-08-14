@@ -14,8 +14,8 @@ stdenv.mkDerivation rec {
     rev = "v${version}";
     sha256 = "sha256-h+Fcl4bRpcDiIVu97/jGZIDynRJHTC/SLWP0uk/sRqw=";
   };
-  nativeBuildInputs = [cmake];
-  buildInputs = [nlohmann_json];
+  buildInputs = [cmake];
+  nativeBuildInputs = [nlohmann_json];
   cmakeFlags = [
     "-DBUILD_BENCHMARK=OFF"
     "-DINJA_BUILD_TESTS=OFF"
