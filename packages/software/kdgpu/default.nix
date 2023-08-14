@@ -11,6 +11,7 @@
   doxybook2 ? KDAB.software.doxybook2,
   vulkan-sdk ? KDAB.software.vulkan-sdk,
   vulkan-memory-allocator ? KDAB.software.vulkan-memory-allocator,
+  spdlog,
   #debug only
   vulkan-validation-layers,
   # docs only
@@ -58,11 +59,15 @@ stdenv.mkDerivation rec {
 
   VULKAN_SDK = "${vulkan-sdk}";
 
+  propagatedBuildInputs = [
+    vulkan-sdk
+    vulkan-memory-allocator
+    spdlog
+  ];
+
   nativeBuildInputs =
     [
       kdutils
-      vulkan-sdk
-      vulkan-memory-allocator
     ]
     ++ (lib.lists.optionals docs [
       doxybook2
