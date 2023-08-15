@@ -3,43 +3,48 @@
   KDAB,
   kdutils ? KDAB.software.kdutils,
   kdgpu ? KDAB.software.kdgpu,
+  glm,
   mkShell,
   ...
 }:
 mkShell
 {
-  packages = with pkgs; [
-    # build tools
-    gnumake
-    cmake
-    pkg-config
+  packages =
+    (with pkgs; [
+      # build tools
+      gnumake
+      cmake
+      pkg-config
 
-    # utils
-    gdb
-    valgrind
+      # utils
+      gdb
+      valgrind
 
-    # deps
-    fontconfig
+      # deps
+      fontconfig
 
-    # mecaps deps
-    curl
-    (kdutils.override {debug = true;})
-    (kdgpu.override {debug = true;})
-    rustc
-    corrosion
-    libxkbcommon
-    xorg.libxcb
+      # mecaps deps
+      curl
+      (kdutils.override {debug = true;})
+      (kdgpu.override {debug = true;})
+      rustc
+      corrosion
+      libxkbcommon
+      xorg.libxcb
 
-    # slint
-    xorg.libX11
-    xorg.libXcursor
-    xorg.libXrandr
-    xorg.libXi
-    libGLU
-    libGL
-    vulkan-loader
-    vulkan-validation-layers
-  ];
+      # slint
+      xorg.libX11
+      xorg.libXcursor
+      xorg.libXrandr
+      xorg.libXi
+      libGLU
+      libGL
+      vulkan-loader
+      vulkan-validation-layers
+    ])
+    ++ [
+      glm
+    ];
 
   shellHook = ''
     export LD_LIBRARY_PATH=${pkgs.fontconfig.lib}/lib:$LD_LIBRARY_PATH
