@@ -4,6 +4,7 @@
   kdutils ? KDAB.software.kdutils.override {debug = true;},
   kdgpu ? KDAB.software.kdgpu.override {debug = true;},
   vulkan-sdk ? KDAB.software.vulkan-sdk,
+  vulkan-memory-allocator ? KDAB.software.vulkan-memory-allocator,
   glm,
   mkShell,
   ...
@@ -43,6 +44,7 @@ mkShell
       vulkan-loader
       vulkan-validation-layers
       vulkan-sdk
+      vulkan-memory-allocator
     ])
     ++ [
       glm
