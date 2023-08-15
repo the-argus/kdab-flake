@@ -38,6 +38,7 @@ mkShell
     libGLU
     libGL
     vulkan-loader
+    vulkan-validation-layers
   ];
 
   shellHook = ''
