@@ -3,6 +3,7 @@
   KDAB,
   kdutils ? KDAB.software.kdutils.override {debug = true;},
   kdgpu ? KDAB.software.kdgpu.override {debug = true;},
+  vulkan-sdk ? KDAB.software.vulkan-sdk,
   glm,
   mkShell,
   ...
@@ -41,6 +42,7 @@ mkShell
       libGL
       vulkan-loader
       vulkan-validation-layers
+      vulkan-sdk
     ])
     ++ [
       glm
@@ -59,5 +61,6 @@ mkShell
 
     # need qt for the binary distribution to be happy, but I don't want to use it
     export SLINT_NO_QT=1
+    export VULKAN_SDK=${vulkan-sdk}
   '';
 }
