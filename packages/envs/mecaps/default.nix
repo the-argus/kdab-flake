@@ -1,8 +1,8 @@
 {
   pkgs,
   KDAB,
-  kdutils ? KDAB.software.kdutils,
-  kdgpu ? KDAB.software.kdgpu,
+  kdutils ? KDAB.software.kdutils.override {debug = true;},
+  kdgpu ? KDAB.software.kdgpu.override {debug = true;},
   glm,
   mkShell,
   ...
@@ -25,8 +25,8 @@ mkShell
 
       # mecaps deps
       curl
-      (kdutils.override {debug = true;})
-      (kdgpu.override {debug = true;})
+      kdutils
+      kdgpu
       rustc
       corrosion
       libxkbcommon
