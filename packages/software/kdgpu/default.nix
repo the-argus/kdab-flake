@@ -19,7 +19,8 @@
   python311Packages,
   ...
 }:
-stdenv.mkDerivation rec {
+stdenv.mkDerivation
+rec {
   name = "kdgpu";
   # src = fetchFromGitHub {
   #   repo = name;
@@ -79,4 +80,6 @@ stdenv.mkDerivation rec {
     ++ (lib.lists.optionals debug [
       vulkan-validation-layers
     ]);
+
+  patches = [./set-options-for-system-provided-build.patch];
 }

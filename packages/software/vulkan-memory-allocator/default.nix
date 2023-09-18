@@ -1,6 +1,5 @@
 {
   stdenv,
-  lib,
   fetchFromGitHub,
   cmake,
   KDAB,
@@ -46,5 +45,3 @@ in
         "-DPOSITION_INDEPENDENT_CODE=ON"
       ];
   }
-  # also do environment variable definitions of 0 for all flags
-  // (lib.attrsets.genAttrs offDefines (_: 0))
