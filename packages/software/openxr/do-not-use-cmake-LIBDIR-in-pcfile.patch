@@ -1,0 +1,19 @@
+---
+ src/loader/openxr.pc.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/loader/openxr.pc.in b/src/loader/openxr.pc.in
+index 9772bf1..cb0ce4e 100644
+--- a/src/loader/openxr.pc.in
++++ b/src/loader/openxr.pc.in
+@@ -4,7 +4,7 @@
+ 
+ prefix=@CMAKE_INSTALL_PREFIX@
+ exec_prefix=@CMAKE_INSTALL_PREFIX@
+-libdir=${exec_prefix}/@CMAKE_INSTALL_LIBDIR@
++libdir=${exec_prefix}/lib
+ includedir=${prefix}/include
+ 
+ Name: @CMAKE_PROJECT_NAME@
+-- 
+2.42.0
