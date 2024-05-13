@@ -26,8 +26,8 @@ in
     src = fetchFromGitHub {
       repo = "VulkanMemoryAllocator";
       owner = "GPUOpen-LibrariesAndSDKs";
-      rev = "29d492b60c84ca784ea0943efc7d2e6e0f3bdaac";
-      hash = "sha256-1YOZ3kZBoxvDjPsJ2PiyR0l5zfkugtcPC6Wg3TuUnCQ=";
+      rev = "eaf8fc27eeadf6f21b11183651b829e897f01957";
+      hash = "sha256-6BmK8jcvynygkWKWK6sqWhDhVyd4xR37oCVfodNyphw=";
     };
 
     buildInputs = [

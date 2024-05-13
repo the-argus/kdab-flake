@@ -3,13 +3,13 @@
  1 file changed, 8 deletions(-)
 
 diff --git a/cmake/dependencies.cmake b/cmake/dependencies.cmake
-index 96afe74..166783c 100644
+index 43a89b6..56719c8 100644
 --- a/cmake/dependencies.cmake
 +++ b/cmake/dependencies.cmake
-@@ -95,14 +95,6 @@ endif()
+@@ -81,14 +81,6 @@ endif()
  
  # whereami library
- find_package(whereami QUIET)
+ find_package(Whereami QUIET)
 -if(NOT TARGET whereami::whereami)
 -    fetchcontent_declare(
 -        whereami
@@ -22,5 +22,5 @@ index 96afe74..166783c 100644
  # mio header-only lib (provides memory mapping for files)
  find_package(mio QUIET)
 -- 
-2.40.1
+2.42.0
 

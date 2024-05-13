@@ -32,8 +32,8 @@ in
     src = fetchFromGitHub {
       repo = name;
       owner = "KDAB";
-      rev = "df850430513fe868712b0308180b52ab45879e89";
-      sha256 = "0i8jianfz3nkawz4lr6dk2hrm5w1zvp8736mnqbm0i9nkd917m0q";
+      rev = "88daab190762040da8927fe1cd8d72176ad278b6";
+      hash = "sha256-U8xmhhjGIZ3DtNfs1OmQwY8+1q+2fGVCasyf2hdMunA=";
     };
 
     buildInputs = [
@@ -45,7 +45,7 @@ in
     dontStrip = debug;
 
     cmakeFlags = [
-      "-Dwhereami_SOURCE_DIR=${whereami}"
+      "-DWhereami_SOURCE_DIR=${whereami}"
       "-DKDUTILS_BUILD_TESTS=OFF"
       (lib.optionalString debug "-DCMAKE_BUILD_TYPE=Debug")
     ];
