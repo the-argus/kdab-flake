@@ -45,7 +45,7 @@ in
     dontStrip = debug;
 
     cmakeFlags = [
-      "-DWhereami_SOURCE_DIR=${whereami}"
+      "-Dwhereami_SOURCE_DIR=${whereami}"
       "-DKDUTILS_BUILD_TESTS=OFF"
       (lib.optionalString debug "-DCMAKE_BUILD_TYPE=Debug")
     ];

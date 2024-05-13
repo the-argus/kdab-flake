@@ -29,11 +29,6 @@ stdenv.mkDerivation rec {
     sha256 = "sha256-FMdmky6cPTX8IpIwby5+i0Sr5+oA9YM3FOZaipbo1tQ=";
   };
 
-  # src = builtins.fetchGit {
-  #   url = "ssh://codereview.kdab.com:29418/kdab/toy-renderer";
-  #   rev = "5a3710ac5c2a4cd1ccd2ce57eb800239bd685303";
-  # };
-
   buildInputs = [
     cmake
     pkg-config
