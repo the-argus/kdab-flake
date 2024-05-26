@@ -16,4 +16,5 @@
   gammaray-qt6 = callPackage ./gammaray-qt6 {};
   mio = callPackage ./mio {};
   openxr = callPackage ./openxr {};
+  kdcmake = callPackage ./kdcmake {};
 }

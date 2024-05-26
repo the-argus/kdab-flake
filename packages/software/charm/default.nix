@@ -1,50 +1,44 @@
 {
   stdenv,
-  cmake,
   qt6,
   extra-cmake-modules,
   libsodium,
   KDAB,
+  kdcmake ? KDAB.software.kdcmake,
   kdab-qtkeychain ? KDAB.software.qtkeychain,
   extraPackages ? [],
   ...
-}: let
-  kdextra-cmake-modules = builtins.fetchGit {
-    url = "ssh://codereview.kdab.com:29418/kdab/extra-cmake-modules";
-    rev = "890af7af29afbdf838039d9053956f2db70c4c55";
+}:
+stdenv.mkDerivation {
+  name = "charm";
+  src = builtins.fetchGit {
+    url = "ssh://codereview.kdab.com:29418/Charm.git";
+    rev = "d81896861c837fc5e9bd927e2b2a0fa596e63fb1";
   };
-in
-  stdenv.mkDerivation {
-    name = "charm";
-    src = builtins.fetchGit {
-      url = "ssh://codereview.kdab.com:29418/Charm.git";
-      rev = "d81896861c837fc5e9bd927e2b2a0fa596e63fb1";
-    };
 
-    cmakeFlags = [
-      "-DCMAKE_MODULE_PATH=${kdextra-cmake-modules}/modules"
-      "-DBUILD_INTERNAL_QTKEYCHAIN=OFF"
-    ];
+  cmakeFlags = [
+    "-DBUILD_INTERNAL_QTKEYCHAIN=OFF"
+  ];
 
-    patches = [
-      ./remove-fetchcontent.patch
-      ./remove-changelog.patch
-    ];
+  patches = [
+    ./remove-fetchcontent.patch
+    ./remove-changelog.patch
+  ];
 
-    buildInputs = [cmake qt6.wrapQtAppsHook];
+  buildInputs = [kdcmake qt6.wrapQtAppsHook];
 
-    nativeBuildInputs = with qt6;
-      [
-        qtbase
-        qt5compat
-        qttools
-        qtscxml
-        qtsvg
-        qtconnectivity
-        kdab-qtkeychain
-        qtwayland
-        libsodium
-        extra-cmake-modules
-      ]
-      ++ extraPackages;
-  }
+  nativeBuildInputs = with qt6;
+    [
+      qtbase
+      qt5compat
+      qttools
+      qtscxml
+      qtsvg
+      qtconnectivity
+      kdab-qtkeychain
+      qtwayland
+      libsodium
+      extra-cmake-modules
+    ]
+    ++ extraPackages;
+}
