@@ -33,6 +33,7 @@ mkShell
       corrosion
       libxkbcommon
       xorg.libxcb
+      mosquitto
 
       # slint
       xorg.libX11
