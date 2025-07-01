@@ -22,6 +22,8 @@ in
     installPhase = ''
       mkdir -p $out/bin
       ln -sf ${cmake}/bin/cmake $out/bin/
+      ln -sf ${cmake}/share $out/share/
+      ln -sf ${cmake}/nix-support $out/nix-support/
       wrapProgram $out/bin/cmake --add-flags "-DCMAKE_MODULE_PATH=${kdextra-cmake-modules}/modules"
     '';
   }
